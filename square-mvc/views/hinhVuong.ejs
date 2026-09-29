@@ -1,0 +1,26 @@
+<!DOCTYPE html>  											
+<html lang="en">  											
+<head>  											
+    <meta charset="UTF-8">  											
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  											
+    <title>Calculate Square Properties</title>  											
+    <link rel="stylesheet" href="/style.css">  
+</head>  											
+<body>  											
+    <main>
+        <h1>Calculate Square Perimeter and Area</h1>  
+        <form action="/calculate" method="POST">  
+            <label for="sideLength">Side Length:</label>  
+            <input type="number" name="sideLength" required>  
+            <button type="submit">Calculate</button>  
+        </form>  
+        
+        <% if (perimeter !== null && area !== null) { %>  
+            <section class="result">
+                <h2>Perimeter: <%= perimeter %></h2>  
+                <h2>Area: <%= area %></h2>  
+            </section>
+        <% } %>  
+    </main>
+</body>  											
+</html>
