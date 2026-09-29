@@ -1,0 +1,15 @@
+{
+  "name": "square-mvc",
+  "version": "1.0.0",
+  "description": "Ứng dụng MVC tính chu vi và diện tích hình vuông ",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
