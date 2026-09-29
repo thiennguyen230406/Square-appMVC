@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính chu vi và diện tích hình vuông</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main>
+        <h1>Tính chu vi và diện tích hình vuông</h1>
+
+        <form action="/calculate" method="POST">
+            <label for="sideLength">Độ dài cạnh</label>
+            <input type="number" id="sideLength" name="sideLength" step="any" min="0" required>
+            <button type="submit">Tính và lưu</button>
+        </form>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <% if (perimeter !== null && area !== null) { %>
+            <section class="result">
+                <h2>Chu vi: <%= perimeter %></h2>
+                <h2>Diện tích: <%= area %></h2>
+            </section>
+        <% } %>
+
+        <h3>10 lần tính gần nhất (đọc từ MongoDB)</h3>
+        <% if (history.length === 0) { %>
+            <p class="muted">Chưa có dữ liệu. Nhập một cạnh và bấm "Tính và lưu".</p>
+        <% } else { %>
+            <table>
+                <thead>
+                    <tr><th>Cạnh</th><th>Chu vi</th><th>Diện tích</th><th>Thời gian</th></tr>
+                </thead>
+                <tbody>
+                    <% history.forEach(function (item) { %>
+                        <tr>
+                            <td><%= item.sideLength %></td>
+                            <td><%= item.perimeter %></td>
+                            <td><%= item.area %></td>
+                            <td><%= new Date(item.createdAt).toLocaleString('vi-VN') %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } %>
+    </main>
+</body>
+</html>
